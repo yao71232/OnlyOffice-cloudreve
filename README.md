@@ -1,3 +1,5 @@
+此项目从https://git.fynn.vip/fynn/onlyoffice-cloudreve搬运
+
 ## 推荐环境 Linux Python3.11
 
 ### 安装
