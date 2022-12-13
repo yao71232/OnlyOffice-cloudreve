@@ -1,0 +1,58 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+</head>
+<div id="placeholder"></div>
+<script type="text/javascript" src="{{ host }}/web-apps/apps/api/documents/api.js"></script>
+<script>
+    //解码url
+    var docEditor = new DocsAPI.DocEditor("placeholder", {
+        "document": {
+            "fileType": "{{suffix}}",
+            "permissions": {
+                "edit": true,
+                "comment": true,
+                "download": true,
+                "print": true,
+                "fillForms": true,
+            },
+            "title": "{{filename}}",
+            {% autoescape false %}
+            "url": "{{url}}",
+            {% endautoescape %}
+        },
+        "editorConfig": {
+            "callbackUrl": "{{callbackUrl}}",//回调地址，一定要保证docserver可以请求到，否则开不开文件
+            "lang": "zh-CN",
+            "mode": "edit",
+            "customization": {
+                "autosave": true,
+                "chat": false,
+                "commentAuthorOnly": true,
+                "comments": false,
+                "compactHeader": true,
+                "compactToolbar": false,
+                "help": false,
+                "toolbarNoTabs": false,
+                "hideRightMenu": true
+            },
+            "user": {
+                "id": "1",
+                "name": "admin"
+            },
+        },
+        "height": "100%",
+        "width": "100%",
+        "type": "desktop",
+
+    });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b1f384b376f74d36ba2cc31e8c26d414";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>

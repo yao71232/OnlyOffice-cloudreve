@@ -1,0 +1,46 @@
+<head>
+    <meta charset="UTF-8">
+    <title>{{ filename }}</title>
+</head>
+<div id="placeholder"></div>
+<script type="text/javascript" src="{{ host }}/web-apps/apps/api/documents/api.js"></script>
+<script>
+    //解码url
+    var docEditor = new DocsAPI.DocEditor("placeholder", {
+        "document": {
+            "fileType": "{{suffix}}",
+            "permissions": {
+                "edit": false,
+                "comment": true,
+                "download": true,
+                "print": true,
+                "fillForms": true,
+            },
+            "title": "{{filename}}",
+            {% autoescape false %}
+            "url": "{{url}}",
+            {% endautoescape %}
+        },
+        "editorConfig": {
+            "lang": "zh-CN",
+            "mode": "view",
+            "user": {
+                "id": "1",
+                "name": "admin"
+            },
+        },
+        "height": "100%",
+        "width": "100%",
+        "type": "desktop",
+
+    });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b1f384b376f74d36ba2cc31e8c26d414";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
